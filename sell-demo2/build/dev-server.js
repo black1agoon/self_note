@@ -40,7 +40,7 @@ apiRoutes.get('/goods',function(req,res){
     data:goods
   });
 });
-apiRoutes.get('/rating',function(req,res){
+apiRoutes.get('/ratings',function(req,res){
   res.json({
     errno:0,
     data:ratings

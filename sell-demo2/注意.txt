@@ -1,0 +1,8 @@
+数据mock   express router
+标签切换   vue router
+前后端ajax vue resource
+
+
+
+子组件继承父组件元素 用props
+父组件继承子组件     用events
