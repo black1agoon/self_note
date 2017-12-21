@@ -36,7 +36,7 @@
           <div class="detail-main">
             <h1 class="name">{{seller.name}}</h1>
             <div class="star-wapper">
-              <star :size="48" :score="seller.score"></star>
+              <star v-bind:size="48" v-bind:score="seller.score"></star>
             </div>
             <div class="title">
               <div class="line"></div>
@@ -79,6 +79,7 @@
     data() {
       return {
         detailShow: false
+//        classMap: ['decrease', 'discount', 'special', 'invoice', 'guarantee']
       };
     },
     methods: {
@@ -99,7 +100,6 @@
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
   @import "../../common/stylus/mixin"
-
   .header
     position: relative
     color: #fff
