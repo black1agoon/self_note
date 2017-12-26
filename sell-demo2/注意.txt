@@ -4,5 +4,12 @@
 
 
 
-子组件继承父组件元素 用props
-父组件继承子组件     用events
+子组件继承父组件元素   子用props  food:{type:Object}   父:food="selectedFood"(data中初始化的一个对象)  通过函数赋值
+父组件继承子组件    传属性 (子用$emit  父用v-on)
+					传方法 (子方法照写，父ref="xxx"   this.$refs.xxx......   )
+
+
+
+
+computed: HTML DOM加载后马上执行的，绑定到dom 如:class赋值
+created: dom加载前，如ajax获取页面数据，初始化插件
