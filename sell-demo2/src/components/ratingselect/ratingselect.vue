@@ -1,11 +1,14 @@
 <template>
   <div class="ratingselect">
     <div class="rating-type border-1px">
-      <span class="block positive">{{desc.all}}</span>
-      <span class="block positive">{{desc.positive}}</span>
-      <span class="block negative">{{desc.negative}}</span>
+      <span class="block positive" @click="select(all)" :class="{'active':selectType===2}">{{desc.all}}<span
+        class="count">{{ratings.length}}</span></span>
+      <span class="block positive" @click="select(positive)" :class="{'active':selectType===0}">{{desc.positive}}<span
+        class="count">{{positives.length}}</span></span>
+      <span class="block negative" @click="select(negative)" :class="{'active':selectType===1}">{{desc.negative}}<span
+        class="count">{{negatives.length}}</span></span>
     </div>
-    <div class="switch">
+    <div @click="toggleContent" class="switch" :class="{'on':onlyContent}">
       <span class="icon-check_circle"></span>
       <span class="text">只看有内容的评价</span>
     </div>
@@ -13,11 +16,18 @@
 </template>
 
 <script type="text/ecmascript-6">
-  //  const POSITIVE = 0;  // 正向评价
-  //  const NEGATIVE = 1;
+  const POSITIVE = 0;  // 正向评价
+  const NEGATIVE = 1;
   const ALL = 2;       // 所有评价
 
   export default {
+    data() {
+      return {
+        all: ALL,
+        positive: POSITIVE,
+        negative: NEGATIVE
+      };
+    },
     props: {
       ratings: {
         type: Array,
@@ -43,6 +53,32 @@
           };
         }
       }
+    },
+    methods: {
+      select(type) {
+        if (!event._constructed) {
+          return;
+        }
+        this.$emit('ratingtypeSelect', type);
+      },
+      toggleContent() {
+        if (!event._constructed) {
+          return;
+        }
+        this.$emit('contentToggle');
+      }
+    },
+    computed: {
+      positives() {
+        return this.ratings.filter((rating) => {
+          return rating.rateType === POSITIVE;
+        });
+      },
+      negatives() {
+        return this.ratings.filter((rating) => {
+          return rating.rateType === NEGATIVE;
+        });
+      }
     }
   };
 </script>
@@ -55,5 +91,44 @@
       padding: 18px 0
       margin: 0 18px
       border-1px(rgba(7, 17, 27, 0.1))
-
+      .block
+        display: inline-block
+        padding: 8px 12px
+        margin-right: 8px
+        -webkit-border-radius: 1px
+        -moz-border-radius: 1px
+        border-radius: 1px
+        font-size: 12px
+        color: rgb(77, 85, 93)
+        &.active
+          color: #fff
+        .count
+          margin-left: 2px
+          font-size: 8px
+        &.positive
+          background: rgba(0, 160, 220, 0.2)
+          &.active
+            background: rgb(0, 160, 220)
+        &.negative
+          background: rgba(77, 85, 93, 0.2)
+          &.active
+            background: rgb(77, 85, 93)
+    .switch
+      padding: 12px 18px
+      line-height: 24px
+      border-bottom: 1px solid rgba(7, 17, 27, 0.1)
+      color: rgb(147, 153, 159)
+      font-size: 0
+      &.on
+        .icon-check_circle
+          color: #00c850
+      .icon-check_circle
+        display: inline-block
+        vertical-align: top
+        margin-right: 4px
+        font-size: 24px
+      .text
+        display: inline-block
+        vertical-align: top
+        font-size: 12px
 </style>

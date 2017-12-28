@@ -13,3 +13,13 @@
 
 computed: HTML DOM加载后马上执行的，绑定到dom 如:class赋值
 created: dom加载前，如ajax获取页面数据，初始化插件
+
+
+
+
+VUE特点:
+	1)响应式编程,数据双向绑定
+	2)组件化、模块化
+	3)动画
+	4)路由vue-router
+	5)稳定性
