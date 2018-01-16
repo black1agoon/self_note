@@ -23,3 +23,41 @@ VUE特点:
 	3)动画
 	4)路由vue-router
 	5)稳定性
+	
+node运行服务:
+1)根目录创建prod.server.js
+2)config->index.js->build添加port9000 productionSourceMap:false  (调试资源 不显示)
+
+
+参考资料:
+Vue.js 官网(https://vuejs.org.cn/)
+Vue-cli (https://github.com/vuejs/vue-cli)
+Vue-resource (https://github.com/vuejs/vue-resource)
+Vue-router (https://github.com/vuejs/vue-router)
+better-scroll (https://giehub.com/ustbhuangyi/better-scroll)
+Stylus 中文文档 (http://www.zhangxinxu.com/jq/stylus)
+es6 入门学习(http://es6.ruanyifeng.com)
+eslint规则 (http://eslint.org/docs/rules)
+设备像素比 (http://www.zhangxinxu.com/wordpress/2012/08/window-devicepixelratio)
+flex布局
+贝塞尔曲线测试  (http://cubic-bezier.com/)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

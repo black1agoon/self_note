@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript" src="move.js"></script>
+<style type="text/css">
+#div1{
+	width: 200px;
+	height: 100px;
+	background: yellow;
+	opacity: 0.3;
+	border:4px solid #000;
+}
+</style>
+<body>
+<div id='div1'></div>
+</body>
+<script type="text/javascript">
+window.onload=function(){
+	oDiv = document.getElementById('div1');
+	oDiv.onmouseover=function(){
+		StartMove(oDiv,{width:500,height:120,opacity:100},function(){
+			StartMove(oDiv,{width:300});
+		});
+	}
+	// oDiv.onmouseout=function(){
+	// 	StartMove(oDiv,{width:200,height:100,opacity:30});
+	// }
+
+}
+</script>
+</html>

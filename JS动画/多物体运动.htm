@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="move.js"></script>
+</head>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+ul,li{
+	list-style-type: none;
+}
+ul li{
+	width: 200px;
+	height: 100px;
+	background: yellow;
+	margin-bottom: 20px;
+	border:4px solid #000;
+	filter:alpha(opacity:30);
+	opacity: 0.3;
+}
+ul{
+	position: absolute;
+}
+</style>
+<body>
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+<dir style="width:200px;height: 500px;border-left: 1px solid red;border-right: 1px solid red;position: absolute;left: 200px;"></dir>
+</body>
+<script type="text/javascript">
+aLi=document.getElementsByTagName('li');
+window.onload=function(){
+	for(i=0;i<aLi.length;i++){
+		aLi[i].timer = null;
+		aLi[i].onmouseover=function(){
+			StartMove(this,'opacity',100);
+		}
+		aLi[i].onmouseout=function(){
+			StartMove(this,'opacity',30);
+		}
+	}
+}
+// timer = null;
+
+</script>
+</html>

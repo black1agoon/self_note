@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><title>Writing to Same Doc</title>
+<head>
+<link rel="stylesheet" type="text/css" href="C:/Users/Auser/Desktop/css2.css">
+<link id="link1"rel="stylesheet" type="text/css" href="">
+
+<script src="C:/Users/Auser/Desktop/jquery-1.8.3.min.js"></script>
+<script language="JavaScript">
+   
+    	var num =Math.round(100*Math.random());
+		var cssURL = 'C:/Users/Auser/Desktop/css.css?v='+num;
+		alert(cssURL);
+	    linkTag = $('#link1').attr({
+	        'id': 'web-access-style',
+	        'href': cssURL,
+	        'rel': 'stylesheet',
+	        'type': 'text/css',
+	        'media': 'all'
+	    });
+                       
+		$($('head')[0]).append(linkTag);
+	       
+</script>
+</head>
+<body>
+
+    <img class="img1" src="C:/Users/Auser/Desktop/bianp07.png">
+
+   <img class="img2" src="C:/Users/Auser/Desktop/bianp07.png">
+</body>
+</html>

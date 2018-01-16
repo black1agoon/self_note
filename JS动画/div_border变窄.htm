@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+#div1{
+	width: 200px;
+	height: 200px;
+	background: red;
+	border:5px solid #000;
+}
+</style>
+<body>
+<div id="div1" >asdsadsdsadsa</div>
+</body>
+<script type="text/javascript">
+window.onload=function(){
+	setInterval(function(){
+		oDiv = document.getElementById('div1');
+		oDiv.style.width = parseInt(getStyle(oDiv,'width')) - 1 +'px';
+
+		
+	},30)
+}
+
+
+function getStyle(obj,attr){
+	if(obj.currentStyle){
+		return obj.currentStyle[attr];
+	}else{
+		return getComputedStyle(obj,false)[attr];
+	}
+}
+</script>
+</html>

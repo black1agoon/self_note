@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="move.js"></script>
+</head>
+<style type="text/css">
+#move{
+	width: 400px;
+	height: 400px;
+	position: relative;
+	margin:0 auto;
+	background: #ccc;
+	text-align: center;
+}	
+#move a{
+	position: relative;
+	width: 100px;
+	float: left;
+	margin:15px;
+	background: #fff;
+	height: 150px;
+	text-decoration: none;
+}
+#move li{
+	list-style: none;
+	position: absolute;
+	width: 80px;
+	height: 100px;
+	left: 10px;
+	top: 30px;
+	opacity: 1;
+}
+#move img{
+	width: 80%;
+}
+#move p{
+	width: 100%;
+	margin:0 auto;
+	position: absolute;
+	bottom: 0;
+}
+#move a:hover{
+	color: red;
+}
+</style>
+<body>
+<div id='move'>
+	<a href="#"><li><img src="codepen.png"></li><p>1111</p></a>
+	<a href="#"><li><img src="111.png"></li><p>1111</p></a>
+	<a href="#"><li><img src="111.png"></li><p>1111</p></a>
+	<a href="#"><li><img src="111.png"></li><p>1111</p></a>
+	<a href="#"><li><img src="111.png"></li><p>1111</p></a>
+	<a href="#"><li><img src="111.png"></li><p>1111</p></a>	
+</div>
+</body>
+<script type="text/javascript">
+
+window.onload=function(){
+	oDiv = document.getElementById('move');
+	ass = oDiv.getElementsByTagName('a');
+	for(var i=0;i<ass.length;i++){
+		ass[i].onmouseenter=function(){
+			var _this = this.getElementsByTagName('li')[0];
+			startMove(_this,{top:-10,opacity:0},function(){
+				// _this.style.top="40px";
+				startMove(_this,{top:30,opacity:100})
+			});
+		}
+	}	
+}
+
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>js_01.html</title>
+	<script type="text/javascript">
+		var d = new Date();
+		//年，月，日
+		aa=new Array("日","一","二","三","四","五","六");
+		time=d.getFullYear()+"年";
+		time+=(d.getMonth()+1)+"月";
+		time+=d.getDate()+"日 ";
+		//星期几
+		time+="  星期"+aa[d.getDay()]+" ";
+		//时,分,秒
+		function add0(n){
+			if(n<10)
+				return "0"+n;
+			else
+				 return n;
+		}
+		time+=add0(d.getHours())+":";
+		time+=add0(d.getMinutes())+":";
+		time+=add0(d.getSeconds());
+		//显示
+		
+	//	time=d.getFullYear()+"年"+(d.getMonth()+1)+"月"+d.getDate()+"日 "+" 星期"+d.getDay()+" "+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds();
+		
+		
+		
+		
+		
+		
+		
+		
+		alert(time);
+	</script>
+  </head>
+  
+  <body>
+    This is my HTML page. <br>
+  </body>
+</html>

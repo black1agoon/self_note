@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+*{
+	margin:0;
+	padding:0;
+}
+#div1{
+	width: 200px;
+	height: 200px;
+	background: red;
+	/*filter: :alpha(opacity:30);*/
+	opacity: 0.3;
+}
+</style>
+<body>
+<div id="div1"></div>
+</body>
+<script type="text/javascript">
+	var oDiv=document.getElementById("div1");
+	timer = null;
+	//alpha = 0.3;
+	alpha = 30;
+
+	oDiv.onmouseover=function(){
+		//startMove(1);
+		startMove(100);
+	}
+	oDiv.onmouseout=function(){
+		//startMove(0.3);
+		startMove(30);
+	}
+
+	function startMove(iTarget){
+		var oDiv=document.getElementById("div1");
+		clearInterval(timer);
+		timer=setInterval(function(){
+			speed = 0;
+			if(alpha>iTarget){
+				// speed=-0.1;
+				speed=-10;
+			}else{
+				//speed=0.1
+				speed=10;
+			}
+			if(alpha==iTarget){
+				clearInterval(timer);
+			}else{
+				alpha += speed;
+				// alert(alpha);
+				// oDiv.style.opacity = alpha;
+				oDiv.style.opacity = alpha/100;
+
+			}
+			
+		},30);
+	}
+</script>
+</html>
