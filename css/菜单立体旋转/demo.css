@@ -1,0 +1,44 @@
+.nav {
+	list-style: none;
+	width: 600px;
+	margin: auto;
+	padding: 0;
+	text-align: center;
+	background: #74ADAA;
+	perspective: 500px;
+}
+
+.item {
+	position: relative;
+	transition: all 0.3s ease;
+	transform-origin: 0 50% -23px;
+	transform-style: preserve-3d;
+	display: inline-block;
+}
+
+.item:hover {
+	transform: rotateX(90deg);
+}
+
+.item:hover>.bottom, .item:hover>.front {
+	background: #478480;
+}
+
+.bottom, .front {
+	color: #fff;
+	background: #74ADAA;
+	font: 20px "Microsoft Yahei";
+	padding: 10px;
+	display: inline-block;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.bottom {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: 0 0;
+	transform: translate(0, 100%) rotateX(-90deg);
+}

@@ -1,0 +1,86 @@
+ctrl+r ：输入历史记录中的任意字符串，执行该命令
+su - username(linux.xyq):切换用户
+su - :切换到root
+sudo：普通用户，使他有权限执行相关命令
+passwd:修改当前用户的密码
+firefox &:使作业在后台运行&
+ctrl+z:暂停进程
+ctrl+c:退出执行
+bg (x):使某进程继续运行,x 第几个
+jobs:查看所有作业
+以“.”开头的文件为隐藏文件
+ls -a 显示全部文件包括隐藏文件
+ls -l 显示详细信息
+cp file1 file2  复制1成2
+cp file1 lujing/  复制1到文件夹lujing中，不需要重命名
+cp -r file1 file2  复制文件夹
+mv A lujing/B 移动A到路径下的B
+mv A B 重命名
+rm -r file 删除文件夹
+rm -i file 非空文件夹详细删除yes/no
+rm -f file 强制删除
+touch AA 创建空文件AA
+tail file 显示文件的末尾10行，
+tail -n 3 file 显示文件的末尾3行
+tail -f 追踪显示文件更新
+echo "*******" >> file 把"****"追加到file末尾
+
+shutdown -how 立即关机
+shutdown -h+10 10分钟后关机
+shutdown -h 23:30分关机
+shut down -r now 立即重启
+poweroff 立即关机
+reboot 立即重启计算机
+归档、压缩:
+zip linuxcast.zip myflie
+unzip linuxcast.zip
+tar -cvf xxx.tar /lujing 归档某个路径下的所有文件
+tar -xvf xxx.tar 释放tar
+查找：
+locate keyword 快速查找文件、文件夹。需要update命令手工建立、更新数据库
+find用以高级查找文件、文件夹
+find lujing -name *xxxxx*
+find / -name *.conf
+find / -perm 777 查找权限
+find -type d
+find . -name *xxxx* -exec ls -l {} \;
+
+vim:i 在光标前插入文本
+	o 在当前行的下面插入新行
+	dd 删除整行
+	yy 将当前行的内容放入缓冲区(复制当前行)
+	n+yy 复制n行
+	p 将缓冲区中的文本放入光标后
+	u 撤销上一个操作
+	r 替换当前字符
+	:w 保存
+	:q 退出
+	:q!强制退出
+	:x保存并退出
+	:set number 显示行号
+	:!系统命令 执行一个系统命令并显示结果
+	:sh 切换到命令行，使用ctrl+d切换回vim
+	
+
+fdisk /dev/sdb
+m 
+t
+p  
+w 保存  partprobe更新分区信息
+fdisk -l
+dumpe2fs /dev/sdb 展示分区信息
+fsck /dev/sda2  检查并修复损坏的文件系统
+
+帮助文档: ls -h  或者  ls --help
+显示手册	man ls 
+详细信息    info ls
+	
+chown A B 修改所属用户B-->A
+chgrp A B 修改所属组B-->A
+chmod 修改权限 
+
+
+防火墙:/etc/sysconfig/iptables
+重启:service iptables stop/start
+修改权限 文件下所有文件的权限：chmod -R 777 file
+

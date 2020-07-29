@@ -1,0 +1,54 @@
+l=(1,2,'a','g')------------------------元组    
+l=[1,2,6,3,'g','hf']-------------------序列
+l={1:111,3:333,'a':aaa}------------------字典(无序)
+
+元组合并 只需相加
+
+
+
+1.raw_input('please input x:') 请输入x:
+2. 遍历序列                            遍历字典
+l=(1,2,4,5,'x','y')           d={1:111,2:222,3:333,5:555}
+     for x in l:                for x in d:
+        print x                    print d[x] 遍历 值
+                               
+     for x in len(l):           for k,v in d.items():
+        print l[x]                 print k
+                                   print v
+3.lambda x,y:x*y             reduce(lambda x,y:x*y,l) l为序列[1,2,3,4,5]
+reduce为逐次操作list里的每项，接收的参数为2个，最后返回的为一个结果 1+2+3+4+5
+
+4.callable(.f..) 判断括号内的是否是函数 
+  isinstance(l,list) 判断l是否是列表
+  filter(f,l)  传入序列l，根据函数f中的条件为正，返回剩余元素，即过滤器
+  map(f,a,b,c...)  f为函数 a,b,c..为序列 多个合并
+  len()
+  divmod()
+  pow()
+  round()
+  类型转换函数
+  type()
+  int()
+  long()
+  float()
+  complex()
+  str.capitalize()
+  str.replace
+  str.split()
+
+
+
+5.import cal as cccc             然后就可以cccc.add() 
+  for cal import add                   可以直接add()
+
+
+
+6.f=open('路径','r')   r读(指针在开头)  w写 a在文件末尾写
+  f.readline()读一行  f.readlines()读全部行，并存在列表中  f.next()读下一行
+  f.writelines(list)  多行写
+  
+  
+ 
+ 
+ 
+7. virtualenv 安装独立的python环境

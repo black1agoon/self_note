@@ -1,0 +1,10 @@
+本地项目推到线上:
+1.git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/569078987/hannao.git
+git push -u origin master
+
+
+----替换git remote set-url origin https://github.com/569078987/hannao.git
+----强制推送git push -u origin master --force   （-u）--> upstream

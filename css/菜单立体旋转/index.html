@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul class="nav">
+		<li class="item"><span class="front">Home</span><span class="bottom">Home</span></li>
+		<li class="item"><span class="front">Services</span><span class="bottom">Services</span></li>
+		<li class="item"><span class="front">Products</span><span class="bottom">Products</span></li>
+		<li class="item"><span class="front">About</span><span class="bottom">About</span></li>
+		<li class="item"><span class="front">Contact</span><span class="bottom">Contact</span></li>
+	</ul>
+</body>
+<style type="text/css">
+.nav {
+	list-style: none;
+	width: 600px;
+	margin: auto;
+	padding: 0;
+	text-align: center;
+	background: #74ADAA;
+	/*perspective: 500px;*/
+}
+
+.item {
+	position: relative;
+	transition: all 0.3s ease;
+	transform-origin: 0 50% -23px;/*-------  z= -50%元素高度-----------------*/
+	transform-style: preserve-3d;
+	display: inline-block;
+}
+
+.item:hover {
+	transform: rotateX(90deg);
+}
+
+.item:hover>.bottom, .item:hover>.front {
+	background: #478480;
+}
+
+.bottom, .front {
+	color: #fff;
+	background: #74ADAA;
+	font: 20px "Microsoft Yahei";
+	padding: 10px;   /*-----为什么用10px--------------------------*/
+	display: inline-block;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.bottom {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform-origin: 0 0;
+	transform: translate(0, 100%) rotateX(-90deg);
+}
+</style>
+</html>
