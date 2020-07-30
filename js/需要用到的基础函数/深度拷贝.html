@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+var obj1 = {};
+var obj2 = {};
+
+obj1.birthPlaces = ['北京','上海','香港'];
+deepCopy(obj1,obj2);
+obj2.birthPlaces.push('厦门');
+
+
+console.log(obj1.birthPlaces); //北京, 上海, 香港
+console.log(obj2.birthPlaces); //北京, 上海, 香港, 厦门
+
+function deepCopy(p, c) {
+	var c = c || {};
+	for (var i in p) {
+　　　　if (typeof p[i] === 'object') {
+　　　　　　c[i] = (p[i].constructor === Array) ? [] : {};
+　　　　　　deepCopy(p[i], c[i]);
+　　　　}else{
+　　　　　　c[i] = p[i];
+　　　　}
+　　}
+　　return c;
+}
+</script>
+</html>

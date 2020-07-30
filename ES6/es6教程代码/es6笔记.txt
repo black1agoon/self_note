@@ -11,3 +11,16 @@ size 属性或 clear() 方法来管理其中的项。如果你确实需要一些检测功能，那么正规 Map
 
 
 2. obj.entries()   .value()  .keys()
+
+
+3.https://segmentfault.com/a/1190000002904199
+类的 prototype 属性和 __proto__ 属性
+一个实例化对象会有一个 __proto__ 指向构造函数的 prototype 属性。在 class 中。同时具有 __proto__ 和 prototype 两个属性，存在两条继承链。
+function Foo(){};
+var foo = new Foo();
+console.log(foo.__proto__ === Foo.prototype); // ture
+===>foo.__proto__ = Foo.prototype     Foo.prototype.__proto__ = Object.prototype
+
+
+子类的 __proto__ 属性，表示构造函数的继承，总是指向父类。
+子类的 prototype 的 __proto__ 属性表示方法的继承，总是指向父类的 prototype 属性。

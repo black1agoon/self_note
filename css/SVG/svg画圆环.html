@@ -1,0 +1,58 @@
+    
+<!DOCTYPE html>
+<html>
+<head>
+	<title>svg 圆形进度条</title>
+	<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+		background: #E6EAEB;
+		font-family: Arial, '微软雅黑', '宋体', sans-serif
+	}
+	.alert-box {
+		display: block;
+		position: relative;
+		margin: 96px auto 0;
+		padding: 180px 85px 22px;
+		border-radius: 10px 10px 0 0;
+		background: #FFF;
+		box-shadow: 5px 9px 17px rgba(102,102,102,0.75);
+		width: 286px;
+		color: #FFF;
+		text-align: center;
+	}
+	.alert-box p {
+		margin: 0;
+	}
+	.alert-circle {
+		position: absolute;
+		top: -50px;
+		left: 111px;
+	}
+	.alert-sec-circle {
+		stroke-dashoffset: -440;
+		stroke-dasharray: 735;
+		transition: stroke-dashoffset 1s linear;
+	}
+	.alert-sec-unit {
+		font-size: 34px
+	}
+</style>
+</head>
+<body>
+	<div id="js-alert-box" class="alert-box"> 
+		<svg class="alert-circle" width="234" height="234">
+			<defs> 
+				<linearGradient id="linear" x1="0%" y1="0%" x2="100%" y2="0%"> 
+					<stop offset="0%" stop-color="#333"/> 
+					<stop offset="100%" stop-color="red"/> 
+				</linearGradient> 
+			</defs>
+			<circle cx="117" cy="117" r="108" fill="#FFF" stroke="url(#linear)" stroke-width="17"></circle>
+			<circle id="js-sec-circle" class="alert-sec-circle" cx="117" cy="117" r="108" fill="transparent" stroke="#F4F1F1" stroke-width="18" transform="rotate(-90 117 117)"></circle>
+			<text class="alert-sec-unit" x="82" y="172" fill="#BDBDBD">4000</text>
+		</svg>
+	</div>
+</body>
+</html>

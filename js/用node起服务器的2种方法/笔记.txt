@@ -1,0 +1,2 @@
+方法一、纯node, 文件读取html
+方法二、node express 访问

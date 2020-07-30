@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
+    circle {
+       //圆环的过渡动画
+      -webkit-transition: stroke-dasharray 800ms;
+      transition: stroke-dasharray 800ms;
+    }
+  </style>
+</head>
+<body>
+<svg width="440" height="440" viewbox="0 0 440 440">
+  <circle cx="220" cy="220" r="170" stroke-width="50" stroke="blue" fill="none"></circle>
+  <circle cx="220" cy="220" r="170" stroke-width="50" stroke="red" fill="none" transform="matrix(0,-1,1,0,0,440)" stroke-dasharray="0 1069" stroke-linecap="round"></circle>
+</svg>
+<script>
+  let percent = 0.7  //从接口获取到的圆环填充百分比
+  let circle = document.querySelectorAll("circle")[1];
+  let perimeter =  circle.getTotalLength() //圆环的周长
+  circle.setAttribute('stroke-dasharray', perimeter * percent + " " + perimeter * (1- percent));
+</script>
+</body>
+</html>

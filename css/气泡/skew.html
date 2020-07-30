@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>CSS3倾斜skew()方法</title>
+    <style type="text/css">
+        /*设置原始元素样式*/
+        #origin
+        {
+            margin:100px auto;/*水平居中*/
+            width:200px;
+            height:100px;
+            border:1px dashed silver;
+        }
+        /*设置当前元素样式*/
+        #current
+        {
+            width:100px;
+            height:100px;
+            color:white;
+            background-color: #3EDFF4;
+            text-align:center;
+            transform: rotate(-45deg) skew(10deg, 10deg);
+            transform-origin: center center;
+            box-shadow: 2px 2px 3px 0 #ff2400;
+        }
+    </style>
+</head>
+<body>
+    <div id="origin">
+        <div id="current"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #wrapper {
+            width: 300px;
+            border: 1px solid blue;
+            overflow: hidden;
+        }
+        #main {
+            display: none;
+            transform: translate3d(0, -200px, 0);
+        }
+        .stretch {
+            transform: translate3d(0, 0, 0)!important;
+            transition: all 0.3s ease;
+        }
+
+
+        #footer {
+            border: 1px solid green;
+        }
+
+    </style>
+
+</head>
+<body>
+    <button id="btn">click</button>
+    <div id="wrapper">
+        <div id="main">
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+            <p>test test test test test test test</p>
+        </div>
+    </div>
+    <div id="footer">footer</div>
+    <script>
+        var btn = document.getElementById('btn');
+        var main = document.getElementById('main');
+        var shrink = true;
+        btn.addEventListener('click', e => {
+            if (shrink) {
+                main.style.display = 'block';
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        main.classList.add('stretch');
+                    });
+                });
+                shrink = false;
+            } else {
+                main.style.display = 'none';
+                main.classList.remove('stretch');
+                shrink = true;
+            }
+        });
+    </script>
+</body>
+</html>

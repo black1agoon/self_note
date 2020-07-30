@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>capture screen</title>
+</head>
+<style type="text/css">
+
+</style>
+<body style="">
+
+
+<svg width="214" height="214" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M 174.14841053312063 58.213824059724715 A 83 83 0 1 0 190 107" fill="transparent" stroke-width="20" stroke="#CCF2FF"></path>
+  <path d="M 184.70318645115617 100.20185206568266 A 78 78 0 0 0 173.85904945476474 66.82703015701574" fill="transparent" stroke-width="40" stroke="#42F8FF"></path>
+</svg>
+
+
+</body>
+<script type="text/javascript">
+var online = 156;
+var total = 168;
+
+
+function polarToCartesian (centerX, centerY, radius, angleInDegrees) {
+  const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0
+
+  return {
+    x: centerX + (radius * Math.cos(angleInRadians)),
+    y: centerY + (radius * Math.sin(angleInRadians)),
+  }
+}
+
+function describeArc (x, y, radius, startAngle, endAngle) {
+
+  const start = polarToCartesian(x, y, radius, endAngle)
+  const end = polarToCartesian(x, y, radius, startAngle)
+
+  const largeArcFlag = endAngle - startAngle <= 180 ? '0' : '1'
+
+  return [
+    'M', start.x, start.y,
+    'A', radius, radius, 0, largeArcFlag, 0, end.x, end.y,
+  ].join(' ')
+}
+
+function pathD () {
+	const end = +(online / total * 360 + 90 - 10).toFixed()
+	return describeArc(107, 107, 83, 90, end)
+}
+function pathV () {
+	const start = +(online / total * 360 + 90 - 5).toFixed()
+	return describeArc(107, 107, 78, start, 85)
+}
+console.log(pathD ())
+console.log(pathV ())
+
+</script>
+</html>

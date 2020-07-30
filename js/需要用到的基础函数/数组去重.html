@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+<script type="text/javascript">
+var ll = [1,2,3,4,56,3,3,2,5,4];
+console.log(delSameArray(ll));
+function delSameArray(array){ 
+	var n = []; 
+	for(var i = 0; i < array.length; i++){ 
+		if (n.indexOf(array[i]) == -1) n.push(array[i]); 
+	} 
+	return n; 
+}
+ 
+</script>
+</html>

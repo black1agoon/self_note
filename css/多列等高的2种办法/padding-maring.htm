@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+</head>
+<style type="text/css">
+*{
+	padding: 0;
+	margin:0;
+}
+.container {
+	margin:0 auto;
+	width: 600px;
+	border: 3px solid #00c;
+	/*overflow: hidden;*/
+}
+.left{
+	float: left;
+	width: 150px;
+	background: #b0b0b0;
+	padding-bottom: 500px;
+	/*margin-bottom: -500px;*/
+}
+.right{
+	float: left;
+	width: 450px;
+	background: #6cc;
+	padding-bottom: 500px;
+	/*margin-bottom: -500px;*/
+}
+</style>
+<body>
+<div class="container">
+	<div class="left">我是left</div>
+	<div class="right">我是right<br><br>现在我的高度比left高，所以left下面出现了脱节的现象</div>
+	<div style="clear: both;">
+</div>
+
+</body>
+<script type="text/javascript">  
+  
+</script> 
+</html>

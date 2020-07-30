@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+</head>
+<style type="text/css">
+*{
+	padding: 0;
+	margin:0;
+}
+.wrapper{
+	width:200px;
+	height: 100px;
+	border: 1px solid #000;
+	margin:50px auto;
+}
+</style>
+<body>
+<input id="name">  
+<input type="button" id="btn" value="提交">  
+
+</body>
+<script type="text/javascript">  
+    $(function(){    
+
+        $("#btn").click(function(){   
+        	console.log(111); 
+            var name=$("#name").val();    
+            document.cookie="name="+name;    
+        });    
+    });    
+</script> 
+</html>

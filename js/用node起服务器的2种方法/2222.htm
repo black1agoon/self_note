@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+</head>
+<style type="text/css">
+	
+
+
+</style>
+<body>
+
+
+<script type="text/javascript">  
+    $(function(){   
+        function getCookie(key) {    
+            return JSON.parse("{\"" + document.cookie.replace(/;\s+/gim,"\",\"").replace(/=/gim, "\":\"") + "\"}")[key];    
+        }     
+        setInterval(function(){    
+            console.log("name=" + getCookie("name"));    
+        }, 10000);    
+    });  
+</script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+
+</style>
+<body>
+<input type="text" id="mobilephone"> <input type="button" value="手机号码验证" onclick="checkMobile()"><br><br>
+<input type="text" id="phone"> <input type="button" value="固定电话验证" onclick="checkPhone()"><br><br>
+<input type="text" id="email"> <input type="button" value="邮箱验证" onclick="checkEmail()"><br><br>
+<input type="text" id="ip"> <input type="button" value="ip地址验证" onclick="checkEmail()"><br><br>
+<input type="text" id="weburl"> <input type="button" value="网址验证" onclick="checkWebUrl()"><br><br>
+</body>
+<script type="text/javascript">
+//手机号码验证
+function checkMobile(num){ 
+	var num = document.getElementById('mobilephone').value;
+	if(!(/^1[3|4|5|8]\d{9}$/.test(num))){ 
+		alert("不是完整的11位手机号"); 
+		return false; 
+	}else{
+		alert("手机号码正确");
+	}
+} 
+//固定号码验证
+function checkPhone(num){
+	var num = document.getElementById('phone').value;
+	if(!/^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{7,14}$/.test(num)){
+		alert('固定电话有误，请重填');
+		return false;
+	}else{
+		alert('固定电话正确');
+	}
+}
+//邮箱验证
+function checkEmail(val){
+	var val = document.getElementById('email').value;
+	if(!/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(val)){
+		alert('邮箱格式错误');
+		return false;
+	}else{
+		alert('邮箱格式正确');
+	}
+}
+
+//ip地址验证
+function checkIp(val){
+	var val = document.getElementById('ip').value;
+	if(!/^((25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))\.){3}(25[0-5]|2[0-4]\d|((1\d{2})|([1-9]?\d)))$/.test(val)){
+		alert('ip地址格式错误');
+		return false;
+	}else{
+		alert('ip地址格式正确');
+	}
+}
+
+//网址验证
+function checkWebUrl(val){
+	var val = document.getElementById('weburl').value;
+	if(!/^((http(s)?:\/\/))[-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]$/.test(val)){
+		alert('网址格式错误');
+		return false;
+	}else{
+		alert('网址格式正确');
+	}
+}
+
+var a = 11;
+var b = '22';
+var c = 1.11;
+console.log(typeof a);
+console.log(typeof b);
+console.log(typeof c);
+</script>
+</html>

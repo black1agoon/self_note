@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="1111.css">
+</head>
+<style type="text/css">
+*{
+	padding: 0;
+	margin:0;
+}
+</style>
+<body>
+
+</body>
+<script type="text/javascript">  
+const template = (
+  '<div class="toast_wrap">' +
+    '<div class="msg"><%text%></div>' +
+    '<div class="tips_icon <%iconClass%>"></div>' +
+  '</div>'
+)
+
+function templateEngine(source, data) {
+  if (!data) {
+    return source
+  }
+  return source.replace(/<%([^%>]+)?%>/g, function (match, key) {  
+  	console.log(match+':'+key);
+    return data[key] ? data[key] : ''
+  })
+}
+console.log(templateEngine(template, {
+  text: 'hello',
+  iconClass: 'warn'
+}));
+
+
+
+name = 'aaa bbb ccc';
+uw = name.replace(/\b(\w+)\b/g, function(match,key) {       //不加括号/\b(\w+)\b/ 输出的是aaa:0  bbb:4 ccc:8
+    	console.log(match + ':' + key);                         //加上括号输出的是 aaa:aaa   bbb:bbb ccc:ccc
+    	return match.substring(0,1).toUpperCase() + match.substring(1);
+	}
+);
+
+</script> 
+</html>
