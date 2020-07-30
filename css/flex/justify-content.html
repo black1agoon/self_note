@@ -1,0 +1,82 @@
+<!DOCTYPE>  
+<html>  
+<head>  
+<meta charSet="utf-8" />  
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>  
+<style type="text/css">  
+.container{  
+  display:flex;  
+  display:-webkit-flex;  
+  border: 2px solid black;  
+  padding: 20px;  
+  margin: 20px;  
+  flex-direction: row;  
+  flex-wrap: nowrap;  
+}  
+.item1{  
+  background: green;  
+  width: 200px;  
+  height: 100px;  
+  margin: 10px;  
+  font-weight: bold;  
+}  
+.item2{  
+  background: green;  
+  width: 300px;  
+  height: 100px;  
+  margin: 10px;  
+  font-weight: bold;  
+}  
+.item3{  
+  background: green;  
+  width: 100px;  
+  height: 100px;  
+  margin: 10px;  
+  font-weight: bold;  
+}  
+.flex-start{  
+  justify-content: flex-start;  
+}  
+.flex-end{  
+  justify-content: flex-end;  
+}  
+.space-between{  
+  justify-content: space-between;  
+}  
+.space-around{  
+  justify-content: space-around;  
+}  
+.center{  
+  justify-content: center;  
+}  
+  
+</style>  
+</head>  
+<body>  
+<div class="container flex-start">  
+  <div class="item1">1</div>  
+  <div class="item2">2</div>  
+  <div class="item3">3</div>  
+</div>  
+<div class="container flex-end">  
+  <div class="item1">1</div>  
+  <div class="item2">2</div>  
+  <div class="item3">3</div>  
+</div>  
+<div class="container center">  
+  <div class="item1">1</div>  
+  <div class="item2">2</div>  
+  <div class="item3">3</div>  
+</div>  
+<div class="container space-between">  
+  <div class="item1">1</div>  
+  <div class="item2">2</div>  
+  <div class="item3">3</div>  
+</div>  
+<div class="container space-around">  
+  <div class="item1">1</div>  
+  <div class="item2">2</div>  
+  <div class="item3">3</div>  
+</div>  
+</body>  
+</html>  

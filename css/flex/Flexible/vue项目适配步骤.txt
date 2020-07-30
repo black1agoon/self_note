@@ -1,0 +1,30 @@
+方法一
+	步骤一
+		安装lib-flexible， npm install lib-flexible --save
+	步骤二
+		main.js或board.js中引入 import 'lib-flexible'
+		
+	步骤三
+		安装stylus-px2rem，并在stylus中 @import "../../node_modules/stylus-px2rem"
+	
+	注意: 1.内联的样式无法px转化rem，需要直接关联class，    2.外部导入的css无法转换，需要结合下面的px2rem-loader，将外部导入的css全部转成rem
+	
+	
+方法二
+	使用webpack来转换px2rem
+
+	步骤一、二相同
+
+	步骤三
+		安装px2rem-loader
+	  const postcssLoader = {
+		loader: 'postcss-loader',
+		options: {
+		  sourceMap: options.sourceMap
+		}
+	  }	
+	function generateLoaders(loader, loaderOptions) {
+		var loaders = [cssLoader, px2remLoader];//添加px2rem 插件	
+		
+方法三
+	postcss-px2rem

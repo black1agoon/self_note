@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>扇形</title>
+  <style>
+.tag{ 
+	width:300px; 
+	height:100px; 
+	border:5px solid #09F; 
+	position:relative; 
+	background-color:#FFF;
+	margin-top: 100px;
+}
+
+.tag:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: -10px;
+    right: 42px;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent #000 #000;
+    transform: rotate(135deg);
+    box-shadow: -2px 2px 3px 0 rgba(0, 0, 0, 1);
+}
+  </style>
+</head>
+<body>
+<div class="tag">
+     CSS气泡框实现
+</div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		.test {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+		}
+		.test::before {
+			content: "";
+			display: inline-block;
+			width: 100px;
+			height: 1px;
+			background: #000;
+		}
+		.test::after {
+			content: "";
+			display: inline-block;
+			width: 100px;
+			height: 1px;
+			background: #000;
+		}
+	</style>
+</head>
+<body>
+	<h1 class="test"><span>文本</span></h1>
+</body>
+</html>

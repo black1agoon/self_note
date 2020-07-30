@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+*{
+	margin:0;
+	padding:0;
+	background: #ccc;
+}
+.box{
+	width: 1000px;
+	height:540px;
+}
+.div1{
+	/*width: 100%;  如果考虑slice的60+40px宽度的话，则用calc(100% - 100px);*/
+	height:440px;
+	border-image-source: url('./bg-box.png');
+	border-image-slice: 60 60 40 40;
+	border-width: 60px 60px 40px 40px;
+	border-style: solid;
+	border-image-repeat: repeat;
+}
+</style>
+</head>
+<body>
+<div class="box">
+	<div class="div1"></div>
+</div>
+</body>
+<script type="text/javascript">
+
+</script>
+</html>

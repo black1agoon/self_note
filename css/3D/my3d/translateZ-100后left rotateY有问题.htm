@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<div class="box">
+	<div class="div1"></div>
+	<div class="box-div2"><div class="div2"></div></div>
+ </div>
+</body>
+<style type="text/css">
+.box{
+	width:200px;
+	height: 200px;
+	position: absolute;
+	left: 50%;
+	margin-left: -100px;
+	margin-top: -100px;
+	top: 50%;
+	perspective:1000px;
+}
+.box *{
+	position: absolute;
+}
+.div1{
+	transform: translateZ(-100px);
+	width: 200px;
+	height: 200px;
+	/*background:blue;*/border: 2px dotted blue;
+}
+.div2{
+	transform: translateZ(-100px);
+	width: 200px;
+	height: 200px;
+	background:red;
+}
+.box-div2{
+	transform-origin: left;
+	width: 200px;
+	height: 200px;
+	animation: 1s leftXZ linear forwards; 
+}
+@keyframes leftXZ{
+	from{
+		transform: translateX(0) rotateY(0) translateZ(0);
+	}to{
+		transform: translateX(0) rotateY(-90deg) translateZ(0);
+	}
+}
+</style>
+</html>
