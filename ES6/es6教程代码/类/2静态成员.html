@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+function PersonType(name) {
+	this.name = name;
+}
+
+PersonType.prototype.sayName = function() {
+	console.log(this.name);
+}
+
+// 静态成员
+PersonType.create = function(name) {
+	return new PersonType(name);
+}
+
+var person = PersonType.create('Nicholas');
+person.sayName()
+
+
+
+class PersonClass {
+	// 等价于PersonType 构造器
+	constructor(name) {
+		this.name = name;
+	}
+
+	// 等价于 PersonType.prototype.sayName
+	sayName() {
+		console.log(this.name);
+	}
+
+	// 等价于 PersonType.create
+	static create(name) {
+		return new PersonType(name);
+	}
+}
+
+let person2 = PersonClass.create('mike');
+person2.sayName()
+
+
+
+</script>
+</html>

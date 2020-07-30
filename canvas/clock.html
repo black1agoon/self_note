@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>钟表</title>
+		<style>
+			#canvas {
+				border: 1px solid #000;
+				margin: 0 auto;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 新建画板 -->
+		<canvas id="canvas" width="400" height="400"></canvas>
+	</body>
+<script type="text/javascript">
+	//获取canvas标签，并且创建 context 对象
+var canvas = document.getElementById('canvas'),
+context = canvas.getContext('2d'),
+deg = Math.PI/180;
+context.translate(200,200);	
+
+context.beginPath();
+context.arc(0, 0, 150, 0, 360 * deg);
+context.lineWidth = 3;
+context.stroke();
+context.closePath();
+
+//创建数字
+for (var i = 1; i <= 12; i++) {
+  context.beginPath();
+  context.save();
+  context.rotate(30 * i * deg);
+  context.textAlign = 'center';
+  if (i % 3 == 0) {
+      context.fillStyle = 'red';
+      context.font = "normal 28px arial";
+      context.fillText(i, 0, -110);
+  } else {
+      context.font = "normal 20px arial";
+      context.fillText(i, 0, -120);
+  }
+  context.restore();
+  context.closePath();
+}
+
+
+
+</script>
+</html>
+

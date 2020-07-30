@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+class MyPromise extends Promise {
+	success(resolve, reject) {
+		console.log(this)
+		return this.then(resolve, reject)
+	}
+
+	failure(reject) {
+		return this.catch(reject)
+	}
+}
+
+let promise = new MyPromise(function(resolve, reject) {
+	resolve(42);
+});
+
+promise.success(function(value) {
+	console.log(value); // 42
+}).failure(function(value) {
+	console.log(value);
+});
+
+
+</script>
+</html>

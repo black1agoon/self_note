@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+let p1 = new Promise(function(resolve, reject) {
+	resolve(42);
+})
+let px = new Promise(function(resolve, reject) {
+	console.log('px');
+	resolve(45);
+})
+
+p1.then(function(value) {
+	console.log(value);
+
+	// 创建一个新的 promise
+	let p2 = new Promise(function(resolve, reject) {
+		console.log('p2')
+		resolve(43);
+	});
+
+	return p2;
+}).then(function(value) {
+	console.log(value);
+})
+
+</script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+
+
+let target = {
+	name: "target"
+};
+let { proxy, revoke } = Proxy.revocable(target, {});
+console.log(proxy.name); // "target"
+revoke();
+// 抛出错误
+console.log(proxy.name);
+
+</script>
+</html>

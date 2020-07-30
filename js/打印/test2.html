@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<style>
+@media print {
+	#print_html{
+		color: red;
+	}	
+}
+
+</style>
+<body>
+		<div id="print_html">这里是要打印的html内容</div>
+		<div id="otherpho">我是其他</div>
+		<input type="button" name="button_print" value="打印" onclick="javascript:printHTML()">
+		<!-- <input type="button" name="button_print" value="打印" onclick="print()"> -->
+		<script type="text/javascript">
+			/**打印页面*/
+	function printHTML() {
+		var userAgent = navigator.userAgent.toLowerCase(); //取得浏览器的userAgent字符串
+		if (userAgent.indexOf("trident") > -1) {
+			alert("请使用google或者360浏览器打印");
+			return false;
+		} else if (userAgent.indexOf('msie') > -1) {
+			var onlyChoseAlert = simpleAlert({
+				"content" : "请使用Google或者360浏览器打印",
+				"buttons" : {
+					"确定" : function() {
+						onlyChoseAlert.close();
+					}
+				}
+			})
+			alert("请使用google或者360浏览器打印");
+			return false;
+		} else { // 其它浏览器使用lodop
+			var oldstr = document.body.innerHTML;
+			var headstr = "<html><head><title></title></head><body>";
+			var footstr = "</body></html>";
+			// 执行隐藏打印区域不需要打印的内容
+			document.getElementById("otherpho").style.display="none";
+			var printData = document.getElementById("print_html").innerHTML; //获得 div 里的所有 html 数据
+			var wind = window.open("", "newwin",'width='+(window.screen.availWidth-10)+',height='+(window.screen.availHeight-30)+ ',top=0,left=0,toolbar=no,menubar=no,scrollbars=no, resizable=no,location=no, status=no');
+			wind.document.body.innerHTML = headstr + printData + footstr;
+			wind.print();
+			// 打印结束后，放开隐藏内容
+			document.getElementById("otherpho").style.display="block";
+			wind.close();
+			window.document.body.innerHTML = oldstr;
+		}
+	}
+		</script>
+	</body>
+</html>

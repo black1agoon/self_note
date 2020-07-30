@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html id="hh1">
+<head>
+<meta charset="utf-8">
+<title>test</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+#canvas{
+
+}
+</style>
+</head>
+<body>
+	<canvas id="canvas" width="1200" height="800">
+	
+	</canvas>
+	<img src="./2222.jpg">
+<script>
+
+// function draw() {
+//  var canvas = document.getElementById('canvas');
+//  if (canvas.getContext) {
+//  var ctx = canvas.getContext('2d');
+
+//  // 二次贝塞尔曲线
+//  ctx.beginPath();
+//  ctx.moveTo(75,25);
+//  ctx.quadraticCurveTo(25,25,25,62.5);
+//  // ctx.quadraticCurveTo(25,100,50,100);
+//  // // ctx.quadraticCurveTo(50,120,30,125);
+//  // // ctx.quadraticCurveTo(60,120,65,100);
+//  // ctx.quadraticCurveTo(125,100,125,62.5);
+//  // ctx.quadraticCurveTo(125,25,75,25);
+//  // ctx.quadraticCurveTo(0,0,75,25);
+//  ctx.stroke();
+//   }
+// }
+function draw() {
+	var canvas = document.getElementById('canvas');
+	if (canvas.getContext) {
+		var ctx = canvas.getContext('2d');
+
+		//三次贝塞尔曲线
+		ctx.beginPath();
+		ctx.moveTo(0,0);
+		var cp1x = 200, cp1y = 260, cp2x = 380, cp2y = 10, x = 420, y = 180;
+		ctx.lineWidth = 5;
+		ctx.beginPath();
+		ctx.moveTo(180, 100);
+		ctx.bezierCurveTo(cp1x,  cp1y,  cp2x,  cp2y,  x,  y);
+		ctx.stroke()
+  	}
+}
+draw()
+</script>
+
+</body>
+</html>

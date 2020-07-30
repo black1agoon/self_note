@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+let proxy = new Proxy({}, {
+	defineProperty(trapTarget, key, descriptor) {
+		if (typeof key === "symbol") {
+			return false;
+		}
+		return Reflect.defineProperty(trapTarget, key, descriptor);
+	}
+});
+Object.defineProperty(proxy, "name", {
+	value: "proxy"
+});
+console.log(proxy.name); // "proxy"
+let nameSymbol = Symbol("name");
+// 抛出错误
+Object.defineProperty(proxy, nameSymbol, {
+	value: "proxy"
+});
+console.log()
+
+
+// 当 key 是一个符号时， defineProperty 代理陷阱会返回 false ，而其他情况下则会保持
+// 默认的行为。当使用字符串 "name" 作为键去调用 Object.defineProperty() 时，该方法能够
+// 成功执行；然而当使用符号变量 nameSymbol 去调用 Object.defineProperty() 的时候，
+// defineProperty 陷阱函数返回了 false ，导致程序抛出了错误。
+</script>
+</html>

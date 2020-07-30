@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+<style>
+</style>
+</head>
+
+<body>
+</body> 
+<script type="text/javascript">
+function setnum(num){//取整，三行逗号隔开
+	/*//获取小数位
+    var right=String(num).split('.')[1];
+    right=(right==undefined)?'':right;
+    */
+   num=Math.floor(num);//向下取整，
+   num=num.toString(); 
+   var len = num.length;
+   var r = len % 3;
+   if (len <= 3) {
+   	return num;
+   }
+   console.log(len, r)
+   num = r > 0 ? num.slice(0,r) + "," + num.slice(r,len).match(/\d{3}/g).join(",") : num.slice(r,len).match(/\d{3}/g).join(","); 
+   return num; 
+};
+var m=setnum(5234566666.789);
+console.log(m);//输出123,456
+function setMoney(num){//取整，三行逗号隔开
+	return parseFloat(num).toLocaleString();
+	
+}
+var m=setMoney(126666663456.7889);
+console.log(m);//输出123,456.789
+</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+let target = function() { return 42 },
+proxy = new Proxy(target, {
+	apply: function(trapTarget, thisArg, argumentList) {
+		console.log(trapTarget, thisArg, argumentList)
+		return Reflect.apply(trapTarget, thisArg, argumentList);
+	},
+	construct: function(trapTarget, argumentList) {
+		return Reflect.construct(trapTarget, argumentList);
+	}
+});
+// 使用了函数的代理，其目标对象会被视为函数
+console.log(typeof proxy); // "function"
+console.log(proxy()); // 42
+var instance = new proxy();
+console.log(instance instanceof proxy); // true
+console.log(instance instanceof target); // true
+
+
+
+// 本例中的函数会返回一个数值 42 。该函数的代理使用了 apply 与 construct 陷阱函数来
+// 将对应行为分别委托给 Reflect.apply() 与 Reflect.construct() 方法。最终结果是代理函
+// 数就像目标函数一样工作，包括使用 typeof 会将其检测为函数，并且使用 new 运算符调
+// 用会产生一个实例对象 instance 。 instance 对象会被同时判定为 proxy 与 target 对象
+// 的实例，是因为 instanceof 运算符使用了原型链来进行推断，而原型链查找并没有受到这
+// 个代理的影响，因此 proxy 对象与 target 对象对于 JS 引擎来说就有同一个原型。
+
+</script>
+</html>

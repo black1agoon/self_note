@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+let proxy = new Proxy({}, {
+	defineProperty(trapTarget, key, descriptor) {
+		console.log(trapTarget, key, descriptor)
+		return Reflect.defineProperty(trapTarget, key, descriptor);
+	},
+	getOwnPropertyDescriptor(trapTarget, key) {
+		return Reflect.getOwnPropertyDescriptor(trapTarget, key);
+	}
+});
+Object.defineProperty(proxy, "name", {
+	value: "proxy"
+});
+console.log(proxy.name); // "proxy"
+let descriptor = Object.getOwnPropertyDescriptor(proxy, "name");
+console.log(descriptor.value); // "proxy"
+
+</script>
+</html>

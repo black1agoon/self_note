@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+// 1. trapTarget ：需要读取属性的对象（即代理的目标对象）；
+// 2. key ：需要检查的属性的键（字符串类型或符号类型）。
+let target = {
+	name: "target",
+	value: 42
+};
+let proxy = new Proxy(target, {
+	has(trapTarget, key) {
+		if (key === "value") {
+			return false;
+		} else {
+			return Reflect.has(trapTarget, key);
+		}
+	}
+});
+console.log("value" in proxy); // false
+console.log("name" in proxy); // true
+console.log("toString" in proxy); // true
+</script>
+</html>

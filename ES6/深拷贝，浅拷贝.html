@@ -1,0 +1,50 @@
+<html>
+<head>
+</head>
+<style type="text/css">
+*{
+	padding: 0;
+	margin: 0;
+}
+.div1{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+</style>
+<body>
+
+	<textarea></textarea>
+</body>
+<script>
+let obj = {
+	age: 10
+}
+
+let obj1 = {
+	grade: 1,
+	name: {
+		first: 'bob'
+	}
+}
+
+let objS = obj1
+let objA = Object.assign(obj, obj1)           // 深度拷贝，缺点是不能拷贝函数, 解决办法是递归
+let objJ = JSON.parse(JSON.stringify(obj1))   // 浅拷贝
+let objK = { ...obj1 }                        // 浅拷贝
+
+console.log(objA)
+console.log(objJ)
+console.log(objK)
+
+obj1.grade = 9
+obj1.name.first = 'chris'
+
+console.log(objS)
+console.log(objA)
+console.log(objJ)
+console.log(objK)
+</script>
+</html>

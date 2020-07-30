@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+	
+let obj = {
+	then: function(resolve) {
+		resolve(42)
+	}
+}
+
+let p1 = Promise.resolve(obj)
+p1.then(function(num) {
+	console.log(num)
+})
+
+
+</script>
+</html>

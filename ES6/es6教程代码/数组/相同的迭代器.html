@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+// let ints = new Int16Array([25, 50]),
+// intsArray = [...ints];
+// console.log(intsArray instanceof Int16Array); // false
+// console.log(intsArray instanceof Array); // true
+// console.log(intsArray[0]); // 25
+// console.log(intsArray[1]); // 50
+
+
+
+let ints = new Int16Array([25, 50]);
+console.log(ints.length); // 2
+console.log(ints[0]); // 25
+console.log(ints[1]); // 50
+ints[1] = 555555;
+console.log(ints.length); // 2
+console.log(ints[1]); // undefined
+
+</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	let SerializableMixin = {
+		serialize() {
+			console.log(this)
+			return JSON.stringify(this)
+		}
+	}
+	let AreaMixin = {
+		getArea() {
+			return this.length * this.width
+		}
+	}
+
+	function mixin(...mixins) {
+		var base = function() {}
+		Object.assign(base.prototype, ...mixins)
+		return base
+	}
+
+	class Square extends mixin(AreaMixin, SerializableMixin) {
+		constructor(length) {
+			super()
+			this.length = length
+			this.width = length
+		}
+	}
+
+	var x = new Square(3)
+	console.log(x.getArea())
+	console.log(x.serialize())
+	console.log(SerializableMixin.serialize())
+</script>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<style type="text/css">
+*{
+	padding: 0;
+	margin: 0;
+}
+.div1{
+	width: 2000px;
+	height: 2400px;
+	border: 1px solid #000;
+	display: flex;
+	justify-content: center;
+}
+</style>
+<body>
+<textarea wrap="off" onfocus="alert('offsetWidth:'+this.offsetWidth+'\n clientWidth:'+this.clientWidth);"></textarea> 
+</body>
+<script type="text/javascript">
+console.log(window.innerWidth)   // 不包括滚动条宽度
+console.log(document.body.clientWidth) // 包括滚动条宽度
+console.log(document.body.offsetWidth) // 包括滚动条宽度  (还包括元素的border)
+
+</script>
+</html>

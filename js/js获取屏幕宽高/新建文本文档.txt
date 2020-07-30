@@ -1,0 +1,80 @@
+﻿屏幕的有效宽高：
+
+window.screen.availHeight
+window.screen.availWidth
+
+网页可见区域宽：document.body.clientWidth 
+网页可见区域高：document.body.clientHeight （内容高度 不包括padding）
+网页可见区域宽：document.body.offsetWidth (包括边线的宽) 
+网页可见区域高：document.body.offsetHeight (内容高度 + 内边距*2 +边框*2) 
+网页正文全文宽：document.body.scrollWidth 
+网页正文全文高：document.body.scrollHeight 
+网页被卷去的高：document.body.scrollTop 
+网页被卷去的左：document.body.scrollLeft 
+网页正文部分上：window.screenTop 
+网页正文部分左：window.screenLeft 
+屏幕分辨率的高：window.screen.height 
+屏幕分辨率的宽：window.screen.width 
+屏幕可用工作区高度：window.screen.availHeight 
+屏幕可用工作区宽度：window.screen.availWidth 
+HTML精确定位:scrollLeft,scrollWidth,clientWidth,offsetWidth 
+scrollHeight: 获取对象的滚动高度。 
+scrollLeft:设置或获取位于对象左边界和窗口中目前可见内容的最左端之间的距离 
+scrollTop:设置或获取位于对象最顶端和窗口中可见内容的最顶端之间的距离 
+scrollWidth:获取对象的滚动宽度 
+offsetHeight:获取对象相对于版面或由父坐标 offsetParent 属性指定的父坐标的高度 
+offsetLeft:获取对象相对于版面或由 offsetParent 属性指定的父坐标的计算左侧位置 
+offsetTop:获取对象相对于版面或由 offsetTop 属性指定的父坐标的计算顶端位置 
+event.clientX 相对文档的水平座标 
+event.clientY 相对文档的垂直座标 
+event.offsetX 相对容器的水平坐标 
+event.offsetY 相对容器的垂直坐标 
+document.documentElement.scrollTop 垂直方向滚动的值 
+event.clientX+document.documentElement.scrollTop 相对文档的水平座标+垂直方向滚动的量
+
+
+1）屏幕可视窗口大小
+	原生方法：window.innerHeight 标准浏览器及IE9+ || document.documentElement.clientHeight 标准浏览器及低版本IE标准模式 || document.body.clientHeight 低版本混杂模式
+	jQuery方法： $(window).height() 
+2）浏览器窗口顶部与文档顶部之间的距离，也就是滚动条滚动的距离
+	原生方法：window.pagYoffset——IE9+及标准浏览器 || document.documentElement.scrollTop 兼容ie低版本的标准模式 || document.body.scrollTop 兼容混杂模式；
+	 jQuery方法：$(document).scrollTop(); 
+3）获取元素的尺寸：对应于图中5、6位置处；左边jquery方法，右边原生方法
+　　　　$(o).width() = o.style.width; 
+　　　　$(o).innerWidth() = o.style.width+o.style.padding;
+　　　　$(o).outerWidth() = o.offsetWidth = o.style.width+o.style.padding+o.style.border;
+　　　　$(o).outerWidth(true) = o.style.width+o.style.padding+o.style.border+o.style.margin;
+　　　　注意：要使用原生的style.xxx方法获取属性，这个元素必须已经有内嵌的样式，如<div style="...."></div>；
+
+　　　　如果原先是通过外部或内部样式表定义css样式，必须使用o.currentStyle[xxx] || document.defaultView.getComputedStyle(0)[xxx]来获取样式值
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

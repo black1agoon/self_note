@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+let proxy = new Proxy({}, {
+	ownKeys(trapTarget) {
+		return Reflect.ownKeys(trapTarget).filter(key => {
+			console.log('key', key)
+			return typeof key !== "string" || key[0] !== "_"; // key的类型不为 string 的过滤掉
+		});
+	}
+});
+
+let nameSymbol = Symbol("name");
+proxy.name = "proxy";
+proxy._name = "private";
+proxy[nameSymbol] = "symbol";
+
+
+let names = Object.getOwnPropertyNames(proxy),
+keys = Object.keys(proxy);
+symbols = Object.getOwnPropertySymbols(proxy);
+
+
+console.log(names.length); // 1
+console.log(names[0]); // "name"
+console.log(keys.length); // 1
+console.log(keys[0]); // "name"
+console.log(symbols.length); // 1
+console.log(symbols[0]); // "Symbol(name)"
+</script>
+</html>

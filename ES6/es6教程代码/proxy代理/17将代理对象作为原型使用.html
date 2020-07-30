@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+let target = {};
+let proxy = new Proxy(target, {
+	// 永远不会被调用
+	defineProperty(trapTarget, name, descriptor) {
+		// 如果被调用就会引发错误
+		return false;
+	}
+})
+let newTarget = Object.create(proxy);
+Object.defineProperty(newTarget, "name", {
+	value: "newTarget"
+});
+console.log(newTarget.name); // "newTarget"
+console.log(newTarget.hasOwnProperty("name")); // true
+
+console.log(proxy, newTarget)
+</script>
+</html>
