@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{title}}</h2>
+    <input v-model="name">
+    <h1>{{name}}</h1>
+    <h1>{{info.age}}</h1>
+    <button v-on:click="clickMe">click me!</button>
+  </div>
+</body>
+<script src="Observer.js"></script>
+<script src="Watcher.js"></script>
+<script src="Compile.js"></script>
+<script src="index.js"></script>
+<script>
+  var ele = document.querySelector('#name');
+  // var selfVue = new SelfVue({
+  //   name: 'hello world',
+  //   age: 18
+  // }, ele, 'name');
+  new SelfVue({
+    el: '#app',
+    data: {
+      title: 'hello world',
+      name: 'xuyq',
+      info: {
+        age: 18  // 无效
+      }
+    },
+    methods: {
+      clickMe: function () {
+        this.title = 'hello world';
+      }
+    },
+    mounted: function() {
+      window.setTimeout(() => {
+        this.title = '你好';
+        this.info.age = 20;
+      }, 1000);
+    }
+  });
+
+</script>
+</html>
