@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>svg 圆形进度条</title>
+<style type="text/css">	
+* {
+	margin: 0;
+	padding: 0;
+}
+.div1 {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	background: red;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+	<div class="div1">
+		
+	</div>
+</body>
+<script type="text/javascript">
+let obj = {  
+    pickyMethodOne: function(obj, str, num) { /* ... */ },
+    pickyMethodTwo: function(num, obj) { /*... */ }
+};
+
+const argTypes = {  
+    pickyMethodOne: ["object", "string", "number"],
+    pickyMethodTwo: ["number", "object"]
+};
+
+obj = new Proxy(obj, {  
+    get: function(target, key, proxy) {
+        var value = target[key];
+        return function(...args) {
+            var checkArgs = argChecker(key, args, argTypes[key]);
+            console.log(key, args, argTypes[key])
+            return Reflect.apply(value, target, args);
+        };
+    }
+});
+
+function argChecker(name, args, checkers) {  // pickyMethodOne , [], ["object", "string", "number"]
+    for (var idx = 0; idx < args.length; idx++) {
+        var arg = args[idx];
+        var type = checkers[idx];
+        if (!arg || typeof arg !== type) {
+            console.warn(`You are incorrectly implementing the signature of ${name}. Check param ${idx + 1}`);
+        }
+    }
+}
+
+obj.pickyMethodOne();  
+
+// > You are incorrectly implementing the signature of pickyMethodOne. Check param 1
+// > You are incorrectly implementing the signature of pickyMethodOne. Check param 2
+// > You are incorrectly implementing the signature of pickyMethodOne. Check param 3
+
+// obj.pickyMethodTwo("wopdopadoo", {});  
+// > You are incorrectly implementing the signature of pickyMethodTwo. Check param 1
+
+// No warnings logged
+// obj.pickyMethodOne({}, "a little string", 123);  
+// obj.pickyMethodOne(123, {}); 
+</script>
+</html>
