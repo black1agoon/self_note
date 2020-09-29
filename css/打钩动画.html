@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打勾动画</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        h2 {
+            font-family: Helvetica;
+            margin-top: 40px;
+            font-size: 36px;
+            color: #333;
+            opacity: 0;
+        }
+
+        .circle {
+            stroke-dasharray: 1194;
+            stroke-dashoffset: 1194;
+            animation: circle 1s ease-in-out forwards;
+        }
+
+        .tick {
+            stroke-dasharray: 350;
+            stroke-dashoffset: 350;
+            animation: tick 0.8s 0.95s ease-in-out forwards;
+        }
+
+        @keyframes circle {
+            from {
+                stroke-dashoffset: 1194;
+            }
+
+            to {
+                stroke-dashoffset: 2388;
+            }
+        }
+
+        @keyframes tick {
+            from {
+                stroke-dashoffset: 350;
+            }
+
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <svg width="400" height="400">
+        <circle class="circle" fill="none" transform="rotate(-90 200 200)" stroke="#68E534" stroke-width="20" cx="200"
+            cy="200" r="190" stroke-linecap="round" />
+        <polyline class="tick" fill="none" stroke="#68E534" stroke-width="24" points="88,214 173,284 304,138"
+            stroke-linecap="round" stroke-linejoin="round"></polyline>
+    </svg>
+</body>
+
+</html>
