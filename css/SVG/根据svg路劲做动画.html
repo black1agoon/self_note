@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>打勾动画</title>
+   
+</head>
+
+<style>
+.container {
+        position: relative;
+    }
+
+    .container svg {
+        background: gray;
+    }
+
+    .container svg path {
+        stroke: black;
+        fill: none;
+        stroke-width: 2;
+    }
+
+    @keyframes svg-path-animation {
+        from {
+            offset-distance: 0%;
+        }
+
+        to {
+            offset-distance: 100%;
+        }
+    }
+
+    .container .rect {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px; 
+        background: darkred;
+
+        offset-path: path("M 20 30 L 160 180");
+        offset-distance: 0%;
+        
+        animation: svg-path-animation 2s ease-in-out 0s infinite normal none;
+    }
+
+</style>
+<body>
+	<div class="container">
+    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 20 30 L 160 180" />
+    </svg>
+
+    <div class="rect"></div>
+</div>
+
+</body>
+
+</html>
