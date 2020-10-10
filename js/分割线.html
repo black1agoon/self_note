@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>分隔条左右拖动 splitter</title>
+    <style>
+        #root {
+            position: relative;
+            width: 800px;
+            height: 300px;
+            margin: 20px auto;
+        }
+        #left {
+            width: 200px;
+            background: #ffdd40;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+        }
+        #right {
+            margin-left: 220px;
+            background: pink;
+            height: 100%;
+        }
+        #line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 209px;
+            width: 4px;
+            background: #e7e7e7;
+            cursor: w-resize;
+        }
+    </style>
+</head>
+
+<body>
+    <center>左右拖动分隔条改变显示区域宽度<span id="msg"></span></center>
+    <div id="root">
+        <div id="left">左边部分</div>
+        <div id="right">右边部分</div>
+        <!-- 分隔条 -->
+        <div id="line"></div>
+    </div>
+</body>
+<script>
+    // 改变分隔条左右宽度所需常量
+    const leftWidth = 200;  // 左边部分宽度
+    const rightToLeftGap = 20;  // 右边部分与左边部分的距离
+    const lineWidth = 4; // 分隔条宽度
+    const splitMinLeft = 209; // 分隔条左边部分最小宽度
+    const splitMaxLeft = 408; // 分隔条左边部分最大宽度
+
+    var oRoot = document.getElementById('root'),
+        oLeft = document.getElementById('left'),
+        oRight = document.getElementById('right'),
+        oLine = document.getElementById('line');
+
+    window.onload = function () {
+        oLine.onmousedown = handleLineMouseDown;
+    };
+
+    // 分隔条操作
+    function handleLineMouseDown(e) {
+        // 记录下初始位置的值
+        let disX = e.clientX;
+        oLine.left = oLine.offsetLeft;
+
+        document.onmousemove = function (e) {
+            let moveX = e.clientX - disX;   // 鼠标拖动的偏移距离
+            let iT = oLine.left + moveX,    // 分隔条相对父级定位的 left 值
+                maxT = oRoot.clientWidth - oLine.offsetWidth;
+
+            iT < 0 && (iT = 0);
+            iT > maxT && (iT = maxT);
+
+            if (iT <= splitMinLeft || iT >= splitMaxLeft) return false;
+
+            let leftLineGap = splitMinLeft - leftWidth; // 分隔条距左边部分的距离
+            let oLeftWidth = iT - leftLineGap;
+            let oRightMarginLeft = oLeftWidth + lineWidth + rightToLeftGap;
+
+            oLine.style.left = `${iT}px`;
+            oLeft.style.width = `${oLeftWidth}px`;
+            oRight.style.marginLeft = `${oRightMarginLeft}px`;
+            return false;
+        };
+
+        // 鼠标放开的时候取消操作
+        document.onmouseup = function () {
+            document.onmousemove = null;
+            document.onmouseup = null;
+        };
+    }
+</script>
+</html>
