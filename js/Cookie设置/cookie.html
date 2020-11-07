@@ -12,7 +12,7 @@
     document.cookie = name + "="+ escape(value) +";expires="+ exp.toGMTString();
   }
   function getCookie(name){
-    var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+    var arr = document.cookie.match(new RegExp('(^|;\\s*)(' + name + ')=([^;]*)'));
     if(arr != null) return unescape(arr[2]); return null;
   }
 
