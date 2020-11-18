@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>capture screen</title>
+</head>
+<style type="text/css">
+#video, #output {
+	width: 300px;height: 300px;
+}
+</style>
+<body>
+    <video id="video" preload="auto" controls="controls">
+        <source src="video1.mp4" type="video/mp4">
+    </video>
+    <div id="output"></div>
+<script type="text/javascript">
+
+	// 需放服务器上 有跨域问题
+
+    var video, output;
+    var scale = 0.8;
+
+
+        output = document.getElementById("output");
+        video = document.getElementById("video");
+        console.log(video)
+        video.onloadeddata = function()  {
+        	console.log(11111)
+	        var canvas = document.createElement("canvas");
+	        canvas.width = 300;
+	        canvas.height = 300;
+	        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+	 
+	        var img = document.createElement("img");
+	        img.src = canvas.toDataURL("image/png");
+	        output.appendChild(img);
+    	};
+ 
+
+
+
+</script>
+</body>
+</html>
