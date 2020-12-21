@@ -41,6 +41,7 @@ function getDocumentTop() {
         documentScrollTop = document.documentElement.scrollTop;
     }
     scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+    console.log('scrollTop', scrollTop)
     return scrollTop;
 }
 
@@ -52,6 +53,7 @@ function getWindowHeight() {
     } else {
         windowHeight = document.body.clientHeight;
     }
+    console.log('windowHeight', windowHeight)
     return windowHeight;
 }
 
@@ -65,8 +67,9 @@ function getScrollHeight() {
     if (document.documentElement) {
         documentScrollHeight = document.documentElement.scrollHeight;
     }
-    console.log(bodyScrollHeight, documentScrollHeight)
+   
     scrollHeight = (bodyScrollHeight - documentScrollHeight > 0) ? bodyScrollHeight : documentScrollHeight;
+    console.log('scrollHeight', scrollHeight)
     return scrollHeight;
 }
 
