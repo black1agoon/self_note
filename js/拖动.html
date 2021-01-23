@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+<div></div>
+
+<script>
+
+    //获取需要拖拽的元素
+    var divs = document.querySelector('div');
+
+    //元素的鼠标落下事件
+    divs.onmousedown = function(ev){
+
+        //event的兼容性
+        var ev = ev||event;
+
+        //获取鼠标按下的坐标
+        var x1 = ev.clientX;
+        var y1 = ev.clientY;
+
+        //获取元素的left，top值
+        var l = divs.offsetLeft;
+        var t = divs.offsetTop;
+        console.log(x1, y1)
+        console.log(l, t)
+        //给可视区域添加鼠标的移动事件
+        document.onmousemove = function(ev){
+
+            //event的兼容性
+            var ev = ev||event;
+
+            //获取鼠标移动时的坐标
+            var x2 = ev.clientX;
+            var y2 = ev.clientY;
+
+            //计算出鼠标的移动距离
+            var x = x2-x1;
+            var y = y2-y1;
+
+            //移动的数值与元素的left，top相加，得出元素的移动的距离
+            var lt = y+t;
+            var ls = x+l;
+
+            //更改元素的left，top值
+            divs.style.top = lt+'px';
+            divs.style.left = ls+'px';
+
+        }
+
+        //清除
+        document.onmouseup = function(ev){
+
+            document.onmousemove = null;
+
+        }
+
+    }
+
+</script>
+
+</body>
+</html>
