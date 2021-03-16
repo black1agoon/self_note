@@ -1,0 +1,3 @@
+npm.jianzb.cn
+username = xuyq
+passowrd(access_token) = hQgipB4Tt8bvXRZLso1H
