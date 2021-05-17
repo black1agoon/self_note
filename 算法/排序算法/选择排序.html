@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    var list = [34,66,12,34,16,77,12,35,56,76,44,4,8,54,31]
+
+    function choseSort(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            let minIndex = i
+            for (let j = i+1; j < arr.length;j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j
+                }
+            }
+            [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]]
+        }
+        return arr
+    }
+
+    console.log(choseSort(list))
+</script>
+</html>

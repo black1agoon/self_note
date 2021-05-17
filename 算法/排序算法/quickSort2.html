@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    function quickSort(array, left = 0, right = array.length -1) {
+
+        var i = left
+        var j = right
+
+        if (i >= j) {
+            return
+        }
+
+        var base = array[i]
+
+        while (i < j) {
+
+            while (j > i && array[j] >= base) {
+                j--
+            }
+            array[i] = array[j]
+
+            while (i < j && array[i] <= base) {
+                i++
+            }
+            array[j] = array[i]
+
+        }
+
+        array[i] = base
+        quickSort(array, left, i-1)
+        quickSort(array, i+1, right)
+        return array
+    }
+
+    var list = [55,23,33,12,89,57,26,7,2,60]
+    console.log(quickSort(list))
+</script>
+</html>
