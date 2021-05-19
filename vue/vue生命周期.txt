@@ -1,0 +1,42 @@
+一 生命周期
+
+1、beforeCreate 创建前
+
+【注】这个阶段，不能使用 this 变量，data() 中的数据、menthods() 中的方法、watcher() 中的事件都不能获得。
+
+【例】添加 loading 事件，在加载实例时触发
+
+
+2、created 创建完毕
+
+【注】这个阶段，可以操作vue实例中的数据和方法，不能操作 dom 节点
+
+【例】初始化完成时事件，结束 loading 事件，异步请求
+
+ 
+3、beforeMounte 挂在前
+
+【注】在挂载开始之前被调用，相关的 render 函数首次被调用。
+
+ 
+4、mounted 挂载结束
+
+【注】这个阶段，dom 节点被渲染到文档内，可以操作 dom节点
+
+【例】挂载元素，获取 dom 节点
+
+ 
+5、beforeUpdate 更新前
+
+
+6、updated 更新完成
+
+【例】对数据的统一处理
+
+ 
+
+7、beforeDestroy 销毁前
+
+【例】确认停止事件的确认框
+
+8、destroyed 销毁完成
