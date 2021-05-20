@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	.div1 {
+		width: 100px;
+		height: 2000px;
+		background: steelblue;
+	}
+</style>
+<body>
+	<div class="div1"> </div>
+</body>
+<script type="text/javascript">
+
+function throttle(fn, delay) {
+  	let prevTime = Date.now();
+  	return function() {
+  		console.log(1111)
+    	let curTime = Date.now();
+    	if (curTime - prevTime > delay) {
+      		fn.apply(this,  arguments);
+      		prevTime = curTime;
+    	}
+  	};
+}
+// 使用
+var throtteScroll = throttle(function() {
+  	console.log('throtte');
+}, 1000);
+
+window.onscroll = throtteScroll;
+
+</script>
+</html>
