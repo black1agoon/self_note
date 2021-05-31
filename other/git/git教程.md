@@ -46,6 +46,7 @@
     1. rebase 之前需要将 master 分支拉到最新
     2. 切换分支到需要 rebase 的分支, 这里是 dev 分支
     3. 执行 git rebase master 有冲突就解决冲突, 解决后直接 git add  再 git rebase --continue 即可
+    4. git rebase origin/dev   将现在所在的分支 rebase 到 远程 dev 上
     
 * `git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"` 设置 `git log` 的别名 `git lg`
 
