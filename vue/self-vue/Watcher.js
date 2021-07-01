@@ -1,3 +1,5 @@
+// 订阅者
+
 function Watcher(vm, exp, cb) {
   this.cb = cb;
   this.vm = vm;
@@ -10,11 +12,11 @@ Watcher.prototype = {
     this.run();
   },
   run: function () {
-    // var value = this.vm.data[this.exp];
-    var keys = this.exp.split('.');
-    var value = keys.reduce((rst, cur) => {
-      return rst[cur]
-    }, this.vm.data)
+    var value = this.vm.data[this.exp];
+    // var keys = this.exp.split('.');
+    // var value = keys.reduce((rst, cur) => {
+    //   return rst[cur]
+    // }, this.vm.data)
     var oldVal = this.value;
     if (value !== oldVal) {
       this.value = value
@@ -24,12 +26,12 @@ Watcher.prototype = {
   get: function () {
     Dep.target = this; // 缓存自己
 
-    var keys = this.exp.split('.');
-    var value = keys.reduce((rst, cur) => {
-      return rst[cur]
-    }, this.vm.data)
+    // var keys = this.exp.split('.');
+    // var value = keys.reduce((rst, cur) => {
+    //   return rst[cur]
+    // }, this.vm.data)
 
-    // var value = this.vm.data[this.exp]; // 强制执行监听器里的get函数
+    var value = this.vm.data[this.exp]; // 强制执行监听器里的get函数
     // console.log(value, this.exp, this.vm.data)
     Dep.target = null; // 释放自己
     return value

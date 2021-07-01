@@ -1,3 +1,5 @@
+// 数据监听器
+
 function defineReactive(data, key, val) {
   observe(val);  // 遍历所有子属性
   var dep = new Dep();
