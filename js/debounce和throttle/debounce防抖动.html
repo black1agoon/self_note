@@ -1,53 +1,56 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>CSS文字垂直排列</title>
-        <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
-        <style type="text/css">
-            div{
-                border: 1px solid lightblue;
-                width: 200px;
-                padding: 5px;
-            }
-            .vertical-text{
-              display: block;
-                -webkit-writing-mode: vertical-rl;
-                writing-mode: vertical-rl;
-            }
-        </style>
-    </head>
-    <body>
-      <input id="input" />
-    </body>
-    <script type="text/javascript">
-/**
-  *
-  * @param fn {Function}   实际要执行的函数
-  * @param delay {Number}  延迟时间，也就是阈值，单位是毫秒（ms）
-  *
-  * @return {Function}     返回一个“去弹跳”了的函数
-  */
+<head>
+  <meta charset="utf-8">
+  <title>debounce</title>
+  <script type="text/javascript" src="jquery-1.8.3.min.js"></script>
+  <style type="text/css">
+    div {
+      border: 1px solid lightblue;
+      width: 200px;
+      padding: 5px;
+    }
+
+    .vertical-text {
+      display: block;
+      -webkit-writing-mode: vertical-rl;
+      writing-mode: vertical-rl;
+    }
+  </style>
+</head>
+<body>
+<input id="input"/>
+</body>
+<script type="text/javascript">
+  /**
+   *
+   * @param fn {Function}   实际要执行的函数
+   * @param delay {Number}  延迟时间，也就是阈值，单位是毫秒（ms）
+   *
+   * @return {Function}     返回一个“去弹跳”了的函数
+   */
   function debounce(fn, delay) {
-    console.log('222', this)
-    // 定时器，用来 setTimeout
+
     var timer
-    console.log(arguments)
-    // 返回一个函数，这个函数会在一个时间区间结束后的 delay 毫秒时执行 fn 函数
+
+
+    console.log('this', this)
+    console.log('arguments', arguments)
+
     return function () {
 
-      // 保存函数调用时的上下文和参数，传递给 fn
       var context = this
-
       var args = arguments
-      console.log('context', context, args)  // input
-      // 每次这个返回的函数被调用，就清除定时器，以保证不执行 fn
+      console.log('this111', this)
+      console.log('args', args)
+
       clearTimeout(timer)
 
       // 当返回的函数被最后一次调用后（也就是用户停止了某个连续的操作），
-      // 再过 delay 毫秒就执行 fn
+
       timer = setTimeout(function () {
         fn.apply(context, args)
+        // fn(args)
       }, delay)
     }
   }
@@ -56,14 +59,14 @@
   //  console.log(e.target.value)
   // })
 
-$('#input').on('input', debounce((e) => {
-  	console.log('111', this)
+  $('#input').on('input', debounce(function(e) {
+    console.log('111', this)
     console.log(e.target.value)
-  },  500))
+  }, 500))
 
 
-// (e) => {....}   this对应windows  apply没生效
-// function(e) => {....}  this对应input   apply生效
+  // (e) => {....}   this对应windows  apply没生效
+  // function(e) => {....}  this对应input   apply生效
 
-    </script>
+</script>
 </html>

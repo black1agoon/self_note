@@ -23,24 +23,38 @@
         while (i < j) {
 
             while (j > i && array[j] >= base) {
-                j--
+                j--        // 从右开始找，右数 大于 base 则继续
             }
-            array[i] = array[j]
+            array[i] = array[j]     // 右数 小于 base 的话, 赋给 array[i] 
 
             while (i < j && array[i] <= base) {
-                i++
+                i++        // 从左开始找，左数 小于 base 则继续
             }
-            array[j] = array[i]
+            array[j] = array[i]     // 左数 大于 base 的话, 赋给 array[j]
 
         }
 
         array[i] = base
+        console.log(i)
         quickSort(array, left, i-1)
         quickSort(array, i+1, right)
         return array
     }
 
-    var list = [55,23,33,12,89,57,26,7,2,60]
+    var list = [55, 23, 33, 12, 89, 57, 26, 7, 2, 60] 
+
     console.log(quickSort(list))
+// // 0 < 9
+// [55, 23, 33, 12, 89, 57, 26, 7, 2, 60]  // i = 0  j = 9   base = 55
+// [2, 23, 33, 12, 89, 57, 26, 7, 2, 60]   // i = 0  j = 8   base = 55	
+// [2, 23, 33, 12, 89, 57, 26, 7, 89, 60]  // i = 4  j = 8   base = 55
+// // 4 < 8
+// [2, 23, 33, 12, 7, 57, 26, 7, 89, 60]   // i = 4 j = 7 base = 55
+// [2, 23, 33, 12, 7, 57, 26, 57, 89, 60]  // i = 5 j = 7 base = 55
+// // 5 < 7
+// [2, 23, 33, 12, 7, 26, 26, 57, 89, 60]  // i = 5 j = 6 base = 55
+// [2, 23, 33, 12, 7, 26, 55, 57, 89, 60]  // i = 6  j = 6 base = 55
+
+
 </script>
 </html>
