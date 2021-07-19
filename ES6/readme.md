@@ -5,7 +5,7 @@
 ```js
     let firstName = Symbol()
     let person = {}
-    person[firstName] = 'Nicholas'ww
+    person[firstName] = 'Nicholas'
     console.log(person[firstName])
 ```
 

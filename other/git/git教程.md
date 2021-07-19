@@ -9,7 +9,7 @@
   7. `git remote prune origin` 清除本地分支缓存(线上没有的那些分支的缓存)--在你需要根据最新的dev分支生成最新分支的时候使用
   8. `git push origin dev:dev_xyq -f` 把当前分支的内容 push 到线上dev_xyq分支 -f 可选
 
-  9. `git remote rm origin` 移除本地关联远程分支, 然后进行第四布 重新关联
+  9. `git remote rm origin` 移除本地关联远程分支, 然后进行第4步 重新关联
 #### 其他操作
 * `git log` 查看提交日志
 * `git log --pretty=oneline` 查看提交日志 精简模式
