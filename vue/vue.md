@@ -7,6 +7,9 @@
 
 >【例】添加 loading 事件，在加载实例时触发
 
+> 功能: 可以做页面拦截。当进一个路由的时候我们可以判断是否有权限进去，是否安全进去，携带参数是否完整，参数是否安全。使用这个钩子好函数的时候就避免了让页面去判断，省掉了创建一个组建Vue实例。可以做自定义重定向。当路由还没有进去时我们判断是否正确进去，若不正确进去可以重定向到指定的页面。
+
+
 
 ## 2. created 创建完毕
 
@@ -46,12 +49,12 @@
 > vue的生命周期的思想贯穿在组件开发的始终，通过熟悉其生命周期调用不同的钩子函数，我们可以准确地控制数据流和其对DOM的影响；vue生命周期的思想是Vnode和MVVM的生动体现和继承。
 
 ## beforeCreate 和 created 区别
-- beforeCreate 实例中的el，data，data中的message都为undefined, 数据观察和事件机制都未形成，不能获得DOM节点。
+- beforeCreate 实例中的el, data, data中的message都为undefined, 数据观察和事件机制都未形成, 不能获得DOM节点。
 - created 数据已经与data中的属性进行绑定, el 还是undefined. 这个阶段, 可以操作vue实例中的数据和方法，不能操作 dom 节点
 
 ## beforeMounte 和 mounted 区别
 - beforeMounte  未挂载, data 和 el 数据初始化, 但页面中的内容还是 vue 中的占位符, data 中的信息还没被挂在到 Bom节点中.
-- mounted 挂在完成
+- mounted 挂载完成
 
 ## beforeUpdate 和 updated 区别
 - beforeUpdate  data中数据发生变化, 但是 view 中还没发生改变

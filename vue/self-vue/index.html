@@ -6,11 +6,11 @@
 </head>
 <body>
   <div id="app">
-    <h2>{{title}}</h2>
+<!--    <h2>{{title}}</h2>-->
     <input v-model="name">
-    <h1>{{name}}</h1>
-    <h1>{{info.age}}</h1>
-    <button v-on:click="clickMe">click me!</button>
+<!--    <h1>{{name}}</h1>-->
+<!--    <h1>{{info.age}}</h1>-->
+<!--    <button v-on:click="clickMe">click me!</button>-->
   </div>
 </body>
 <script src="Observer.js"></script>
@@ -28,9 +28,10 @@
     data: {
       title: 'hello world',
       name: 'xuyq',
-      info: {
-        age: 18  // 无效
-      }
+      sex: '男'
+      // info: {
+      //   age: 18  // 无效
+      // }
     },
     methods: {
       clickMe: function () {
@@ -38,10 +39,10 @@
       }
     },
     mounted: function() {
-      window.setTimeout(() => {
-        this.title = '你好';
-        this.info.age = 20;
-      }, 1000);
+      // window.setTimeout(() => {
+      //   this.title = '你好';
+      //   // this.info.age = 20;
+      // }, 1000);
     }
   });
 

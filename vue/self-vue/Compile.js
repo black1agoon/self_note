@@ -33,12 +33,15 @@ Compile.prototype = {
     // console.log(childNodes)
     var self = this;
     [].slice.call(childNodes).forEach(function (node) {
+      // console.log(node)
       var reg = /\{\{(.*)\}\}/;
       var text = node.textContent;
       if (self.isElementNode(node)) {
+        // console.log('isElementNode', node)
         self.compile(node);
       } else if (self.isTextNode(node) && reg.test(text)) { // 判断是否是符合这种形式{{}}的指令
         // console.log(reg.exec(text), node)
+        // console.log('isTextNode', node)
         self.compileText(node, reg.exec(text)[1]);
       }
       if (node.childNodes && node.childNodes.length) {
@@ -74,9 +77,10 @@ Compile.prototype = {
     // <button>click me!</button>
     var nodeAttrs = node.attributes;
     var self = this;
+    // console.log(nodeAttrs)
     Array.prototype.forEach.call(nodeAttrs, function (attr) {
       var attrName = attr.name;  // v-model 、 v-on:click
-      if (self.isDirective(attrName)) {
+      if (self.isDirective(attrName)) {  // 是 指令
         var exp = attr.value; // name 、 clickMe
         var dir = attrName.substring(2); // model 、 on:click
         if (self.isEventDirective(dir)) { // 事件指令
@@ -116,7 +120,7 @@ Compile.prototype = {
   modelUpdater: function (node, value, oldValue) {
     node.value = typeof value === 'undefined' ? '' : value;
   },
-  isDirective: function (attr) {
+  isDirective: function (attr) { // 指令
     return attr.indexOf('v-') === 0;
   },
   isEventDirective: function (dir) {

@@ -3,13 +3,14 @@
 function defineReactive(data, key, val) {
   observe(val);  // 遍历所有子属性
   var dep = new Dep();
+  // console.log(dep)
   Object.defineProperty(data, key, {
     enumerable: true,
     configurable: true,
     get: function () {
       if (Dep.target) {  // 是否需要添加订阅者
         dep.addSub(Dep.target); // 在这里添加一个订阅者
-        // console.log(dep.subs)
+        // console.log(dep.subs)  // 每次 调用 new Watcher() 时, 执行 get, 如果是 data 中的同名 数据, 则会添加在同一个 subs中
       }
       return val;
     },
