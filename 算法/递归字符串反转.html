@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style type="text/css">
+	
+.div1 {
+    width: 0;
+    height: 0;
+    border-width: 50px 50px 0 ; 
+    border-style:solid; 
+    border-color: #333 transparent transparent; 
+}
+
+</style>
+<body>
+
+<div class="div1">
+
+</body>
+
+<script type="text/javascript">
+
+let str = 'abcdefg'
+
+let array = str.split("")
+
+function reverse(string) {
+	if (string.length === 0 || string.length === 1) {
+		return string
+	} else {
+		return reverse(string.substring(1)) + string.charAt(0)
+	}
+}
+
+console.log(reverse(str))
+
+// 数组形式
+
+// function reverse(string) {
+// 	let arr = string.split("")
+// 	if (arr.length === 0 || arr.length === 1) {
+// 		return arr
+// 	} else {
+// 		return reverse(arr.slice(1).join("")) + arr[0]
+// 	}
+// }
+
+// console.log(reverse(str))
+</script>
+
+</html>
