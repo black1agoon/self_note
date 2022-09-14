@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+  // 白屏
+  console.log(new Date().getTime() - performance.timing.navigationStart)
+</script>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+</head>
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<body>
+
+<div class="div">
+  
+</div>
+
+
+</body>
+
+
+
+<script type="text/javascript">
+// 首屏
+window.onload = function() {
+  console.log(new Date().getTime() - performance.timing.navigationStart)
+}
+
+</script>
+
+</html>

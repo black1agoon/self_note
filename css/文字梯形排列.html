@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<title>Document</title>
+</head>
+<script type="text/javascript" src="jquery.min.js"></script>
+
+<body>
+<div id="box">
+        <span id="text">我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，我是一段文本而已，</span>
+</div>
+
+</body>
+
+<style> 
+
+#box {
+    width: 400px;
+    height: 600px;
+    background-color: red;
+}
+#box .float-div{
+    float: left; 
+    clear: both; 
+    background: rgba(0,0,0,0.2); 
+}
+
+</style>
+
+ 
+
+<script> 
+
+
+// JS 部分仅仅是为了生成 div, 就不多优化了
+var box = document.getElementById('box')
+var text = document.getElementById('text')
+var bH = box.offsetHeight
+var bW = box.offsetWidth
+var step = 10
+var dH = 10
+var dW = bW - step * 4
+var num = parseInt(bH / dH)
+var tem = document.createDocumentFragment()
+for(var i=0;i < num && dW > 0;i++){
+    var d = document.createElement('div')
+    d.style.height = dH + 'px'
+    d.style.width = dW + 'px'
+    d.classList.add('float-div')
+    tem.appendChild(d)
+    dW -= step
+}
+box.insertBefore(tem,text)
+
+
+</script>
+
+</html>
